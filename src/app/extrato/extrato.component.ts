@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-extrato',
   templateUrl: './extrato.component.html',
-  styleUrls: ['./extrato.component.css']
+  styleUrls: ['./extrato.component.scss']
 })
 export class ExtratoComponent implements OnInit {
 
@@ -11,7 +11,7 @@ export class ExtratoComponent implements OnInit {
     Esta propriedade recebe do app.component os dados
     da transferência
   */
-  @Input() transferencia: any;
+  @Input() transferencias: any[];
 
   constructor() { }
 
