@@ -10,7 +10,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 )
 export class NovaTransferenciaComponent implements OnInit {
 
-  @Output() aoTransferir = new EventEmitter<any>();
+  // Este é o objeto responsável de emitir os dados para o app.component
+  // Ele foi instanciado como um emissor de eventos (no caso, ao clicar no botão)
+  // do tipo any. É interessante rever essa tipagem posterior mente para um
+  // evitar falta de clareza sobre que tipo de objeto está sendo transmitido
+  @Output() aoTransferir = new EventEmitter<any>(); 
 
   valor: number;
   destino: number;
