@@ -30,7 +30,8 @@ export class NovaTransferenciaComponent implements OnInit {
     (
       {
         valor: this.valor,
-        destino: this.destino
+        destino: this.destino,
+        data: new Date()
       }
     );
 

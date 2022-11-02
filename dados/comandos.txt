@@ -1,0 +1,4 @@
+--> json-server ajuda a mockar o recebimento de dados através de uma api rest sem precisar ter uma api já pronta no back-end
+- npm install -g json-server
+- json-server --watch db.json
+- JSON2TS.com para converter o json em um model typescript
