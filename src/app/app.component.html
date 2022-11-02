@@ -1,9 +1,7 @@
-<app-nova-transferencia>
-</app-nova-transferencia>
-
-<!--
-    A linha abaixo está pegando o objeto "tranferencias" 
-    do app.component.ts e passando para a propriedade
-    input "transferencias" de extrato.component.ts
- -->
-<app-extrato></app-extrato>
+<header>
+    <a routerLink="nova-transferencia">ByteBank</a>
+    <a routerLink="extrato" routerLinkActive="ativo">Extrato</a>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TransferenciaService } from '../services/transferencia.service';
 import { Transferencia } from '../models/transferencia.models';
+import { Router } from '@angular/router';
 
 @Component
 (
@@ -21,19 +22,20 @@ export class NovaTransferenciaComponent implements OnInit {
   valor: number;
   destino: number;
   
-  constructor(private _transferenciaService: TransferenciaService) { }
+  constructor
+  (
+    private _transferenciaService: TransferenciaService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+
   transferir ()
   {
-    const transferencia: Transferencia = 
-    {
-      valor: this.valor,
-      destino: this.destino,
-      data: new Date()
-    }
+    const transferencia: Transferencia = this.getTransferencia(); 
+    
     this._transferenciaService
     .adicionarTransferencia(transferencia)
     .subscribe(
@@ -45,12 +47,28 @@ export class NovaTransferenciaComponent implements OnInit {
         console.log(err);
       },
       complete() {
-        console.info;
+        alert("Sua transferência foi realizada com sucesso! Para acessar o histórico de transferências, acesse a aba 'Extrato' no cabeçalho da página.")
       },
     });
-
     this.limparCampos();
+    // caso queira que o usuário seja redirecionado para
+    // a página de extrato automaticamente, descomente a
+    // linha abaixo
+    // this.router.navigateByUrl("extrato");
   }
+
+  getTransferencia(){
+    const transferencia: Transferencia = 
+    {
+      valor: this.valor,
+      destino: this.destino,
+      data: new Date()
+    };
+
+    return transferencia;
+  }
+
+
   limparCampos() 
   {
     this.valor = null;
