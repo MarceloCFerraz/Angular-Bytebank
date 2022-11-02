@@ -1,14 +1,10 @@
-declare module namespace {
+export interface Transferencia {
+    id?: string | number;
+    valor: number;
+    destino: number;
+    data?: Date;
+}
 
-    export interface Transferencia {
-        id: string;
-        valor: number;
-        destino: string;
-        data: Date;
-    }
-
-    export interface RootObject {
-        transferencias: Transferencia[];
-    }
-
+export interface RootObject {
+    transferencias: Transferencia[];
 }
